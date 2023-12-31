@@ -1,18 +1,23 @@
+const generateColorPalette = require("./colorPalette.js");
 const express = require('express')
 const multer = require('multer');
+
 const app = express()
 const port = 3001;
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-app.get("/api", upload.single('file'), (req, res) => {
-    const file = req.file;
-    console.log(file.originalname);
-    const numClusters = req.body.numClusters
-    console.log('File uploaded successfully!');
-    console.log(req.body.numClusters);
-    res.send('File uploaded successfully!');
+app.get("/api", upload.single('file'), async (req, res) => {
+    try {
+        const file = req.file;
+        const numClusters = req.body.numClusters
+        console.log('File uploaded successfully!');
+        const colorPalette = await generateColorPalette(file.buffer, numClusters);
+        res.status(200).send(colorPalette);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
 })
 
 app.listen(port, () => {console.log(`Server started on port ${port}`)})

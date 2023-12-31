@@ -3,23 +3,27 @@ const imagePath = './SunFlower.jpg';
 const numColors = 11;
 const sortByHue = false;
 
-const getPixels = require('get-pixels');
+const sharp = require('sharp');
 const kmeans = require('node-kmeans');
 const rgbToHsl = require('rgb-to-hsl');
 
-const getImagePixelsArray = (imagePath) => {
+const getImagePixelsArray = (imageBuffer) => {
   return new Promise(function (resolve, reject) {
-    getPixels(imagePath, (err, pixels) => {
-        if (err) {
-          console.log("File does not exist");
-          reject();
-        }
-        const reshapedArray = [];
-        for (let i = 0; i < pixels.data.length; i += pixels.shape[2]) {
-          reshapedArray.push([...pixels.data.slice(i, i + 3)]);
-        }
-        resolve(reshapedArray);
-    })
+  sharp(imageBuffer)
+  .raw()
+  .toBuffer({ resolveWithObject: true })
+  .then(({ data, info }) => {
+    const numPixels = info.width * info.height;
+    const pixelArray = [];
+    for (let i = 0; i < numPixels; i++) {
+      const offset = i * info.channels;
+      pixelArray.push([...data.subarray(offset, offset+3)]);
+    }
+    resolve(pixelArray);
+  })
+  .catch((err) => {
+    console.error('Error reading image:', err);
+  });
   })
 }
 
@@ -39,15 +43,14 @@ const validateInput = (numColors) => {
   return (numColors > 10 || numColors < 1);
 }
 
-const generateColorPalette = async (imagePath, numColors) => {
+const generateColorPalette = async (imageBuffer, numColors) => {
   // Validate
   if (numColors > 10 || numColors < 1) {
-    console.log("Number of colors must be between between 1 and 10");
-    return;
+    throw new Error('Number of colors must be between between 1 and 10');
   }
 
   // Step 1: Extract pixels
-  const pixelArray = await getImagePixelsArray(imagePath);
+  const pixelArray = await getImagePixelsArray(imageBuffer);
 
   // Step 2: Use k-means clustering to extract dominant colors
   const dominantColors = await clusterizeColors(pixelArray, numColors);
@@ -59,10 +62,8 @@ const generateColorPalette = async (imagePath, numColors) => {
   // Step 4: Generate color palette
   const zeroPad = (num, places) => String(num).padStart(places, '0')
   const colorPalette = dominantColors.map(color => color.map(channel => zeroPad(channel.toString(16), 2)).join(''));
-  console.log("https://coolors.co/" + colorPalette.join('-'));
-  colorPalette.forEach(color => {
-    console.log("#"+color);
-  });
+  const coolorsLink = "https://coolors.co/" + colorPalette.join('-');
+  return {colors: colorPalette, link: coolorsLink};
 }
 
-generateColorPalette(imagePath, numColors);
+module.exports = generateColorPalette;
