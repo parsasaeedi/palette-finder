@@ -1,7 +1,15 @@
-import { Button } from 'antd';
+import { Button, ConfigProvider } from 'antd';
 
 export default function PalettePage(props) {
     const numberSign = '#'
+    const buttonTheme = {
+        components: {
+            Button: {
+                colorPrimaryHover: '#8E8E8E',
+                colorTextLightSolid: '#000000'
+            },
+          },
+    }
 
     return (
         <div className='palette-page'>
@@ -16,7 +24,9 @@ export default function PalettePage(props) {
                     ))}
                 </div>
             </div>
-            <Button className='replace-image-button' type="primary" shape="round" size='large' onClick={props.replaceImage}>Replace Image</Button>
+            <ConfigProvider theme={buttonTheme} >
+                <Button className='replace-image-button' type="primary" shape="round" size='large' onClick={props.replaceImage}>Replace Image</Button>
+            </ConfigProvider>
         </div>
     )
 }
