@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Col, InputNumber, Row, Slider } from 'antd';
 
-export default function NumOfColorsSlider() {
-  const [inputValue, setInputValue] = useState(5);
+export default function NumOfColorsSlider(props) {
   const onChange = (newValue) => {
     if (newValue != null && Number.isInteger(newValue)) {
-      setInputValue(newValue);
+      props.setNumOfColors(newValue);
     }
   };
   return (
@@ -16,7 +15,7 @@ export default function NumOfColorsSlider() {
             min={1}
             max={10}
             onChange={onChange}
-            value={typeof inputValue === 'number' ? inputValue : 0}
+            value={typeof props.numOfColors === 'number' ? props.numOfColors : 0}
           />
         </Col>
         <Col flex="10px" />
@@ -24,7 +23,7 @@ export default function NumOfColorsSlider() {
           <InputNumber
             min={1}
             max={10}
-            value={inputValue}
+            value={props.numOfColors}
             style={{ width: '60px' }}
             onChange={onChange}
           />

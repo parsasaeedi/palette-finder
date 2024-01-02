@@ -2,11 +2,11 @@ import axios from 'axios';
 
 export default function useGeneratePaletteAPI() {
 
-    async function fetchPalette(selectedFile) {
+    async function fetchPalette(selectedFile, numOfColors) {
 
         const bodyFormData = new FormData();
         bodyFormData.append('file', selectedFile);
-        bodyFormData.append('numClusters', 5);
+        bodyFormData.append('numClusters', numOfColors);
 
         return new Promise((resolve, reject) => {
             axios({

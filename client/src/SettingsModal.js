@@ -9,7 +9,7 @@ export default function SettingsModal(props) {
             <img className='image-preview' src={URL.createObjectURL(props.selectedFile)} />
         }
         <p>Select number of colors:</p>
-        <NumOfColorSlider />
+        <NumOfColorSlider numOfColors={props.numOfColors} setNumOfColors={props.setNumOfColors}/>
     </Modal>
   );
 };

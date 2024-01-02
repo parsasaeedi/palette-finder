@@ -8,12 +8,13 @@ import useGeneratePaletteAPI from './useGeneratePaletteAPI.js';
 export default function LandingPage() {
     const [selectedFile, setselectedFile] = useState(null);
     const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
+    const [numOfColors, setNumOfColors] = useState(5);
 
     const fetchPalette = useGeneratePaletteAPI();
 
     const handleGenerate = async () => {
         try {
-            const palette = await fetchPalette(selectedFile);
+            const palette = await fetchPalette(selectedFile, numOfColors);
             console.log(palette);
         } catch (error) {
             console.error(error);
@@ -67,7 +68,7 @@ export default function LandingPage() {
                     Single file upload. Supports PNG and JPEG.
                 </p>
             </Dragger>
-            <SettingsModal open={isSettingsModalOpen} onOk={handleGenerate} onCancel={handleSettingsModalCancel} selectedFile={selectedFile}/>
+            <SettingsModal open={isSettingsModalOpen} onOk={handleGenerate} onCancel={handleSettingsModalCancel} selectedFile={selectedFile} numOfColors={numOfColors} setNumOfColors={setNumOfColors} />
         </div>
     )
 }
