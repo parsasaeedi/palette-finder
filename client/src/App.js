@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import './App.css';
+import LandingPage from './LandingPage.js'
+import { ConfigProvider, theme } from 'antd';
 
 function App() {
 
@@ -15,13 +18,14 @@ function App() {
   }, [])
 
   return (
-    <div>
-      {(typeof backendData.users === 'undefined') ? (
-        <p>Loading...</p>
-      ) : (
-        backendData.users.map(user => <p>{user}</p>)
-      )
-      }
+    <div className='app'>
+      <ConfigProvider
+        theme={{
+          algorithm: theme.darkAlgorithm,
+        }}
+      >
+        <LandingPage />
+      </ConfigProvider>
     </div>
   );
 }
