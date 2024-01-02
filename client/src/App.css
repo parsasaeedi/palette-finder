@@ -54,40 +54,7 @@ html {
   text-align: center;
 }
 
-.landing-page .image-upload {
-  background-color: #000;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border-radius: 3vw;
-  width: 28vw;
-  height: 30vh;
-}
-
-.landing-page .image-upload .drop-zone {
-  background-color: #000;
-  border-radius: 3vw;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 90%;
-  width: 90%;
-}
-
-.landing-page .image-upload .drop-zone .dragger {
-  width: 25vw;
+.landing-page .dragger {
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -99,17 +66,19 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 25vw;
+  height: 27vh;
 }
 
-.landing-page .image-upload .drop-zone .dragger .inert-photo-icon {
+.landing-page .dragger .inert-photo-icon {
   color: #8E8E8E;
 }
 
-.landing-page .image-upload .drop-zone .dragger .ant-upload-text {
+.landing-page .dragger .ant-upload-text {
   color: #8E8E8E;
 }
 
-.landing-page .image-upload .drop-zone .dragger .ant-upload-drag {
+.landing-page .dragger .ant-upload-drag {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -125,17 +94,17 @@ html {
           align-items: center;
   height: 100%;
   border-radius: 3vw;
-  background-color: #000;
+  background-color: black;
 }
 
-.landing-page .image-upload .drop-zone .dragger .ant-upload-drag .ant-upload-btn {
+.landing-page .dragger .ant-upload-drag .ant-upload-btn {
   height: 100%;
   width: 100%;
   border-radius: 3vw;
   border-width: 10px;
 }
 
-.landing-page .image-upload .drop-zone .dragger .ant-upload-drag .ant-upload-btn .ant-upload-drag-container {
+.landing-page .dragger .ant-upload-drag .ant-upload-btn .ant-upload-drag-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -151,7 +120,7 @@ html {
           align-items: center;
 }
 
-.landing-page .image-upload .drop-zone .inert-photo-icon {
+.landing-page .inert-photo-icon {
   width: 6vw;
   height: 6vw;
 }

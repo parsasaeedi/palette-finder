@@ -49,17 +49,13 @@ export default function LandingPage() {
         <div className='landing-page'>
             <h1 className='logo'>PalettePickr</h1>
             <h2 className='slogan'>Transform your images to color palettes and unleash your creativity!</h2>
-            <div className='image-upload'>
-                <div className="drop-zone">
-                    <Dragger {...props} className='dragger'>
-                        <InsertPhotoOutlinedIcon className="inert-photo-icon"/>
-                        <p className="ant-upload-text">Browse or drop image</p>
-                        <p className="ant-upload-hint">
-                            Single file upload. Supports PNG and JPEG.
-                        </p>
-                    </Dragger>
-                </div>
-            </div>
+            <Dragger {...props} className='dragger'>
+                <InsertPhotoOutlinedIcon className="inert-photo-icon"/>
+                <p className="ant-upload-text">Browse or drop image</p>
+                <p className="ant-upload-hint">
+                    Single file upload. Supports PNG and JPEG.
+                </p>
+            </Dragger>
             <SettingsModal open={isSettingsModalOpen} onOk={handleSettingsModalOk} onCancel={handleSettingsModalCancel} uploadedFile={uploadedFile}/>
         </div>
     )
