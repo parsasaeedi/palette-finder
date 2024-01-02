@@ -15,6 +15,11 @@ $primary: #8E8E8E;
     src: url(./OpenSans-VariableFont_wdth\,wght.ttf);
 }
 
+@font-face {
+    font-family: 'Inter';
+    src: url(./Inter-VariableFont_slnt,wght.ttf);
+}
+
 html {
     background-color: $black;
 }
@@ -110,4 +115,52 @@ html {
 
 .slider {
     flex-grow: 5;
+}
+
+.palette-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-around;
+    align-items: center;
+
+    .logo {
+        color: $brightText;
+        font-size: 40px;
+    }
+
+    .image-palette-container {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+
+        .palette-image {
+            width: 100%;
+        }
+        
+        .palette {
+            display: flex;
+            width: 100%;
+            height: 15vh;
+    
+            .palette-color {
+                flex-grow: 1;
+                // aspect-ratio: 1;
+                font-family: 'Inter';
+                font-weight: 600;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                mix-blend-mode: difference;
+            }
+        }
+    }
+
+
+    
+    .replace-image-button {
+        background-color: $brightText;
+        color: $black;
+    }
 }
