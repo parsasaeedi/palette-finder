@@ -20,6 +20,8 @@ export default function LandingPage() {
             console.log(palette);
         } catch (error) {
             console.error(error);
+            message.error("Something went wrong. Try another image.");
+            setselectedFile(null);
         } finally {
             setFetchIsLoading(false);
             setIsSettingsModalOpen(false);
