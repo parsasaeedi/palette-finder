@@ -3,17 +3,28 @@ import { message, Upload, Modal } from 'antd';
 import NumOfColorSlider from './NumOfColorsSlider.js'
 import InsertPhotoOutlinedIcon from '@mui/icons-material/InsertPhotoOutlined';
 import SettingsModal from './SettingsModal.js';
+import useGeneratePaletteAPI from './useGeneratePaletteAPI.js';
 
 export default function LandingPage() {
-    const [uploadedFile, setUploadedFile] = useState(null);
+    const [selectedFile, setselectedFile] = useState(null);
     const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
 
-    const handleSettingsModalOk = () => {
-        setIsSettingsModalOpen(false);
+    const fetchPalette = useGeneratePaletteAPI();
+
+    const handleGenerate = async () => {
+        try {
+            const palette = await fetchPalette(selectedFile);
+            console.log(palette);
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setIsSettingsModalOpen(false);
+        }
     };
 
     const handleSettingsModalCancel = () => {
         setIsSettingsModalOpen(false);
+        setselectedFile(null);
     };
 
     const { Dragger } = Upload;
@@ -24,7 +35,7 @@ export default function LandingPage() {
         showUploadList: false,
         maxCount: 1,
         beforeUpload: (file) => {
-            setUploadedFile(file);
+            setselectedFile(file);
             setIsSettingsModalOpen(true);
             return false;
         },
@@ -56,7 +67,7 @@ export default function LandingPage() {
                     Single file upload. Supports PNG and JPEG.
                 </p>
             </Dragger>
-            <SettingsModal open={isSettingsModalOpen} onOk={handleSettingsModalOk} onCancel={handleSettingsModalCancel} uploadedFile={uploadedFile}/>
+            <SettingsModal open={isSettingsModalOpen} onOk={handleGenerate} onCancel={handleSettingsModalCancel} selectedFile={selectedFile}/>
         </div>
     )
 }

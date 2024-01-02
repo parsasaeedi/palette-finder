@@ -8,7 +8,7 @@ const port = 3001;
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-app.get("/api", upload.single('file'), async (req, res) => {
+app.post("/api", upload.single('file'), async (req, res) => {
     try {
         const file = req.file;
         const numClusters = req.body.numClusters
@@ -16,6 +16,7 @@ app.get("/api", upload.single('file'), async (req, res) => {
         const colorPalette = await generateColorPalette(file.buffer, numClusters);
         res.status(200).send(colorPalette);
     } catch (error) {
+        console.error(error);
         res.status(400).json({ error: error.message });
     }
 })
