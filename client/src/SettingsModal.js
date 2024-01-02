@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { message, Upload, Modal } from 'antd';
+import { Modal } from 'antd';
 import NumOfColorSlider from './NumOfColorsSlider.js'
 
 export default function SettingsModal(props) {

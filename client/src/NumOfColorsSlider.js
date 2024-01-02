@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Col, InputNumber, Row, Slider } from 'antd';
 
 export default function NumOfColorsSlider(props) {
