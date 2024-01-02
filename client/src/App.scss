@@ -151,8 +151,13 @@ html {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                color: white;
                 mix-blend-mode: difference;
+            }
+            .palette-color-dark {
+                color: white;
+            }
+            .palette-color-bright {
+                color: black;
             }
         }
     }

@@ -60,17 +60,17 @@ const generateColorPalette = async (imageBuffer, numColors) => {
   const pixelArray = await getImagePixelsArray(imageBuffer);
 
   // Step 2: Use k-means clustering to extract dominant colors
-  const dominantColors = await clusterizeColors(pixelArray, numColors);
+  const colorPalette = await clusterizeColors(pixelArray, numColors);
   
   // Step 3: Sort dominant colors by hue or average of 3 channels
-  SORTBYHUE ? dominantColors.sort((a, b) => rgbToHsl(...a)[0] - rgbToHsl(...b)[0])
-  : dominantColors.sort((a, b) => (a.reduce((a, b) => a + b, 0)/3) - (b.reduce((a, b) => a + b, 0)/3));
+  SORTBYHUE ? colorPalette.sort((a, b) => rgbToHsl(...a)[0] - rgbToHsl(...b)[0])
+  : colorPalette.sort((a, b) => (a.reduce((a, b) => a + b, 0)/3) - (b.reduce((a, b) => a + b, 0)/3));
 
   // Step 4: Generate color palette
   const zeroPad = (num, places) => String(num).padStart(places, '0')
-  const colorPalette = dominantColors.map(color => color.map(channel => zeroPad(channel.toString(16), 2)).join(''));
-  const coolorsLink = "https://coolors.co/" + colorPalette.join('-');
-  return {colors: colorPalette, link: coolorsLink};
+  // const colorPalette = dominantColors.map(color => color.map(channel => zeroPad(channel.toString(16), 2)).join(''));
+  // const coolorsLink = "https://coolors.co/" + colorPalette.join('-');
+  return {colors: colorPalette};
 }
 
 module.exports = generateColorPalette;

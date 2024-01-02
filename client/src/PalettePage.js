@@ -10,6 +10,8 @@ export default function PalettePage(props) {
             },
           },
     }
+    const zeroPad = (num, places) => String(num).padStart(places, '0');
+    const luminance = (color) => {return color.reduce((a, b) => a + b, 0)/3}
 
     return (
         <div className='palette-page'>
@@ -20,7 +22,12 @@ export default function PalettePage(props) {
                 }
                 <div className='palette'>
                     {props.palette.map((color) => (
-                        <div className='palette-color' style={{backgroundColor: numberSign.concat(color)}}>{color.toUpperCase()}</div>
+                        <div 
+                            className= {luminance(color) >= 100 ? 'palette-color palette-color-bright' : 'palette-color palette-color-dark'}
+                            style={{backgroundColor: numberSign.concat(color.map(channel => zeroPad(channel.toString(16), 2)).join(''))}}
+                        >
+                            {color.map(channel => zeroPad(channel.toString(16), 2)).join('').toUpperCase()}
+                        </div>
                     ))}
                 </div>
             </div>

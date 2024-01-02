@@ -211,8 +211,15 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: white;
   mix-blend-mode: difference;
+}
+
+.palette-page .image-palette-container .palette .palette-color-dark {
+  color: white;
+}
+
+.palette-page .image-palette-container .palette .palette-color-bright {
+  color: black;
 }
 
 .palette-page .replace-image-button {
