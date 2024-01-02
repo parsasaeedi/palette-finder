@@ -2,22 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { message, Upload, Modal } from 'antd';
 import NumOfColorSlider from './NumOfColorsSlider.js'
 import InsertPhotoOutlinedIcon from '@mui/icons-material/InsertPhotoOutlined';
+import SettingsModal from './SettingsModal.js';
 
 export default function LandingPage() {
     const [uploadedFile, setUploadedFile] = useState(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
 
-    const showModal = () => {
-        setIsModalOpen(true);
-      };
-    
-      const handleOk = () => {
-        setIsModalOpen(false);
-      };
-    
-      const handleCancel = () => {
-        setIsModalOpen(false);
-      };
+    const handleSettingsModalOk = () => {
+        setIsSettingsModalOpen(false);
+    };
+
+    const handleSettingsModalCancel = () => {
+        setIsSettingsModalOpen(false);
+    };
 
     const { Dragger } = Upload;
     const props = {
@@ -28,8 +25,7 @@ export default function LandingPage() {
         maxCount: 1,
         beforeUpload: (file) => {
             setUploadedFile(file);
-            // console.log(file);
-            showModal();
+            setIsSettingsModalOpen(true);
             return false;
         },
         // action: 'https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188',
@@ -64,13 +60,7 @@ export default function LandingPage() {
                     </Dragger>
                 </div>
             </div>
-            <Modal centered className='settings-modal' title="Settings" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} okText="Generate">
-                {uploadedFile != null && 
-                    <img className='image-preview' src={URL.createObjectURL(uploadedFile)} />
-                }
-                <p>Select number of colors:</p>
-                <NumOfColorSlider />
-            </Modal>
+            <SettingsModal open={isSettingsModalOpen} onOk={handleSettingsModalOk} onCancel={handleSettingsModalCancel} uploadedFile={uploadedFile}/>
         </div>
     )
 }
