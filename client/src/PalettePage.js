@@ -26,7 +26,9 @@ export default function PalettePage(props) {
                             className= {luminance(color) >= 100 ? 'palette-color palette-color-bright' : 'palette-color palette-color-dark'}
                             style={{backgroundColor: numberSign.concat(color.map(channel => zeroPad(channel.toString(16), 2)).join(''))}}
                         >
-                            {color.map(channel => zeroPad(channel.toString(16), 2)).join('').toUpperCase()}
+                            <div className='palette-color-text'>
+                                {color.map(channel => zeroPad(channel.toString(16), 2)).join('').toUpperCase()}
+                            </div>
                         </div>
                     ))}
                 </div>

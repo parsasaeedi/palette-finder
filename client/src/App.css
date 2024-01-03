@@ -181,27 +181,30 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 50vw;
+  max-width: 50vw;
+  height: 65vh;
 }
 
 .palette-page .image-palette-container .palette-image {
-  width: 100%;
+  max-width: 100%;
+  max-height: 85%;
+  min-height: 50%;
+  height: auto;
 }
 
 .palette-page .image-palette-container .palette {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  height: 15vh;
+  container-type: size;
+  max-width: 100%;
+  min-height: 15%;
 }
 
 .palette-page .image-palette-container .palette .palette-color {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  font-family: 'Inter';
-  font-weight: 600;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -211,6 +214,25 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  container-type: size;
+}
+
+.palette-page .image-palette-container .palette .palette-color .palette-color-text {
+  font-family: 'Inter';
+  font-weight: 600;
+  font-size: calc(8px + 0.5vw);
+}
+
+@container (max-width: 90px) {
+  .palette-page .image-palette-container .palette .palette-color .palette-color-text {
+    font-size: calc(8px + 0.3vw);
+  }
+}
+
+@container (max-width: 70px) {
+  .palette-page .image-palette-container .palette .palette-color .palette-color-text {
+    font-size: 0;
+  }
 }
 
 .palette-page .image-palette-container .palette .palette-color-dark {
