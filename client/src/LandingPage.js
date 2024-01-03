@@ -14,8 +14,9 @@ export default function LandingPage(props) {
     const handleGenerate = async () => {
         try {
             setFetchIsLoading(true);
-            const palette = await fetchPalette(props.selectedFile, numOfColors);
-            props.setPalette(palette);
+            const paletteData = await fetchPalette(props.selectedFile, numOfColors);
+            props.setPalette(paletteData.palette);
+            props.setImageAspectRatio(paletteData.imageAspectRatio)
             props.setCurrentPage(props.pages.palettePage);
         } catch (error) {
             console.error(error);

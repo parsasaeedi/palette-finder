@@ -16,7 +16,7 @@ export default function useGeneratePaletteAPI() {
                 headers: { 'Content-Type': 'multipart/form-data' },
             })
             .then(function (response) {
-                resolve(response.data.colors);
+                resolve(response.data);
             })
             .catch(function (response) {
                 reject("Something went wrong");
