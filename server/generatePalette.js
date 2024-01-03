@@ -62,7 +62,7 @@ const generatePalette = async (imageBuffer, numColors) => {
   const palette = await clusterizeColors(pixelArray, numColors);
   
   // Step 3: Sort dominant colors by hue or average of 3 channels
-  palette.sort((a, b) => rgbToHsl(...a)[0] - rgbToHsl(...b)[0]);
+  palette.sort((a, b) => (a.reduce((a, b) => a + b, 0)/3) - (b.reduce((a, b) => a + b, 0)/3))
 
   // Step 4: Generate color palette
   return palette;
