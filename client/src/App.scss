@@ -46,13 +46,11 @@ html {
         color: $brightText;
         font-size: 40px;
     }
-
     .slogan {
         font-size: 32px;
         width: 50vw;
         text-align: center;
     }
-
     .dragger {
         height: 100%;
         width: 100%;
@@ -65,11 +63,10 @@ html {
         .inert-photo-icon {
             color: $primary;
         }
-
         .ant-upload-text {
             color: $primary;
         }
-
+        
         .ant-upload-drag {
             display: flex;
             flex-direction: column;
@@ -107,12 +104,10 @@ html {
 .image-preview {
     width: 100%;
 }
-
 .num-of-colors-slider {
     display: flex;
     gap: 30px;
 }
-
 .slider {
     flex-grow: 5;
 }
@@ -145,13 +140,11 @@ html {
     
             .palette-color {
                 flex-grow: 1;
-                // aspect-ratio: 1;
                 font-family: 'Inter';
                 font-weight: 600;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                mix-blend-mode: difference;
             }
             .palette-color-dark {
                 color: white;
@@ -162,8 +155,6 @@ html {
         }
     }
 
-
-    
     .replace-image-button {
         background-color: $brightText;
         color: $black;

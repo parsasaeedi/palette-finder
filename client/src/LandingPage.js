@@ -15,7 +15,6 @@ export default function LandingPage(props) {
         try {
             setFetchIsLoading(true);
             const palette = await fetchPalette(props.selectedFile, numOfColors);
-            console.log(palette);
             props.setPalette(palette);
             props.setCurrentPage(props.pages.palettePage);
         } catch (error) {
