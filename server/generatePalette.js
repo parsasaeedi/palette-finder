@@ -46,7 +46,7 @@ const clusterizeColors = (pixelArray, numColors) => {
   })
 }
 
-const generateColorPalette = async (imageBuffer, numColors) => {
+const generatePalette = async (imageBuffer, numColors) => {
   // Validate
   if (numColors > MAXNUMCOLORS || numColors < MINNUMCOLORS) {
     throw new Error('Number of colors must be between between 1 and 10');
@@ -59,13 +59,13 @@ const generateColorPalette = async (imageBuffer, numColors) => {
   const pixelArray = await getImagePixelsArray(imageBuffer);
 
   // Step 2: Use k-means clustering to extract dominant colors
-  const colorPalette = await clusterizeColors(pixelArray, numColors);
+  const palette = await clusterizeColors(pixelArray, numColors);
   
   // Step 3: Sort dominant colors by hue or average of 3 channels
-  colorPalette.sort((a, b) => rgbToHsl(...a)[0] - rgbToHsl(...b)[0]);
+  palette.sort((a, b) => rgbToHsl(...a)[0] - rgbToHsl(...b)[0]);
 
   // Step 4: Generate color palette
-  return {colors: colorPalette};
+  return palette;
 }
 
-module.exports = generateColorPalette;
+module.exports = generatePalette;

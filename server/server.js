@@ -1,6 +1,7 @@
-const generateColorPalette = require("./colorPalette.js");
+const generatePalette = require("./generatePalette.js");
 const express = require('express')
 const multer = require('multer');
+const sizeOf = require("image-size")
 
 const app = express()
 const port = 3001;
@@ -13,8 +14,14 @@ app.post("/api", upload.single('file'), async (req, res) => {
         const file = req.file;
         const numClusters = req.body.numClusters
         console.log('File uploaded successfully!');
-        const colorPalette = await generateColorPalette(file.buffer, numClusters);
-        res.status(200).send(colorPalette);
+        const palette = await generatePalette(file.buffer, numClusters);
+        const imageDimensions = sizeOf(file.buffer)
+        const imageAspectRatio = imageDimensions.width/imageDimensions.height;
+        const data = {
+            palette: palette,
+            imageAspectRatio: imageAspectRatio,
+        }
+        res.status(200).send(data);
     } catch (error) {
         console.error(error);
         res.status(400).json({ error: error.message });
