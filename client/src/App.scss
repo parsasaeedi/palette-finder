@@ -1,4 +1,4 @@
-$mobileWidth: 60em;
+$mobileWidth: 45em;
 $black: black;
 $brightText: #C3C3C3;
 $primary: #8E8E8E;
@@ -50,9 +50,13 @@ html {
         width: 50vw;
         text-align: center;
     }
+    @media (max-width: $mobileWidth) {
+        .slogan {
+            width: 80vw;
+            font-size: 28px;
+        }
+    }
     .dragger {
-        height: 100%;
-        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -61,7 +65,16 @@ html {
 
         .inert-photo-icon {
             color: $primary;
+            width: 6vw;
+            height: 6vw;
         }
+        @media (max-width: $mobileWidth) {
+            .inert-photo-icon {
+                width: 20vw;
+                height: 20vw;
+            }
+        }
+        
         .ant-upload-text {
             color: $primary;
         }
@@ -88,12 +101,23 @@ html {
                     align-items: center;
                 }
             }
+
+            @media (max-width: $mobileWidth) {
+                .ant-upload-btn {
+                    border-radius: 10vw;
+                }
+            }
+        }
+        @media (max-width: $mobileWidth) {
+            .ant-upload-drag {
+                border-radius: 10vw;
+            }
         }
     }
-        
-    .inert-photo-icon {
-        width: 6vw;
-        height: 6vw;
+    @media (max-width: $mobileWidth) {
+        .dragger {
+            width: 80vw;
+        }
     }
 }
 
