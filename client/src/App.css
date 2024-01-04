@@ -22,7 +22,7 @@ html {
 
 .app {
   background-color: black;
-  height: 100vh;
+  height: 95vh;
   color: #8E8E8E;
   margin: 0;
   font-family: 'Open Sans';
@@ -38,7 +38,6 @@ html {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 80vh;
-  margin-bottom: 30vh;
   margin-top: 5vh;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -182,7 +181,10 @@ html {
       -ms-flex-direction: column;
           flex-direction: column;
   max-width: 50vw;
-  height: 65vh;
+  max-height: 65vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .palette-page .image-palette-container .palette-image {
@@ -235,12 +237,25 @@ html {
   }
 }
 
+@media (max-width: 60em) {
+  .palette-page .image-palette-container .palette .palette-color .palette-color-text {
+    font-size: 0;
+  }
+}
+
 .palette-page .image-palette-container .palette .palette-color-dark {
   color: white;
 }
 
 .palette-page .image-palette-container .palette .palette-color-bright {
   color: black;
+}
+
+@media (max-width: 60em) {
+  .palette-page .image-palette-container {
+    max-width: 90vw;
+    max-height: 65vh;
+  }
 }
 
 .palette-page .replace-image-button {
