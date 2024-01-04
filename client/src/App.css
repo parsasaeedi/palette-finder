@@ -234,6 +234,8 @@ html {
   max-height: 85%;
   min-height: 50%;
   height: auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .palette-page .image-palette-container .palette {
@@ -243,6 +245,14 @@ html {
   container-type: size;
   max-width: 100%;
   min-height: 15%;
+}
+
+.palette-page .image-palette-container .palette :last-child {
+  border-bottom-right-radius: 10px;
+}
+
+.palette-page .image-palette-container .palette :first-child {
+  border-bottom-left-radius: 10px;
 }
 
 .palette-page .image-palette-container .palette .palette-color {
