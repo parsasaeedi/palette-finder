@@ -124,8 +124,18 @@ html {
 .ant-modal-mask {
     backdrop-filter: blur(2px);
 }
-.image-preview {
-    width: 100%;
+
+.image-preview-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+
+    .image-preview {
+        max-width: 100%;
+        max-height: 60vh;
+        border-radius: 10px;
+    }
 }
 .num-of-colors-slider {
     display: flex;

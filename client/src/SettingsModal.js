@@ -6,7 +6,9 @@ export default function SettingsModal(props) {
   return (
     <Modal centered className='settings-modal' title="Settings" open={props.open} onOk={props.onOk} onCancel={props.onCancel} okText={okText} confirmLoading={props.fetchIsLoading}>
         {props.selectedFile != null && 
+          <div className='image-preview-container'>
             <img className='image-preview' src={URL.createObjectURL(props.selectedFile)} />
+          </div>
         }
         <p>Select number of colors:</p>
         <NumOfColorSlider numOfColors={props.numOfColors} setNumOfColors={props.setNumOfColors}/>
