@@ -48,7 +48,7 @@ export default function LandingPage(props) {
 
     return (
         <div className='landing-page'>
-            <h1 className='logo'>PalettePickr</h1>
+            <h1 className='logo'>PaletteFinder</h1>
             <h2 className='slogan'>Transform your images to color palettes and unleash your creativity!</h2>
             <Dragger {...draggreProps} className='dragger'>
                 <InsertPhotoOutlinedIcon className="inert-photo-icon"/>

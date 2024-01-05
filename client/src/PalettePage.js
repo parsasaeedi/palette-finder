@@ -24,7 +24,7 @@ export default function PalettePage(props) {
 
     return (
         <div className='palette-page'>
-            <h1 className='logo'>PalettePickr</h1>
+            <h1 className='logo' onClick={props.replaceImage}>PaletteFinder</h1>
             <div className='image-palette-container'>
                 {props.selectedFile != null && 
                     <img className='palette-image' src={URL.createObjectURL(props.selectedFile)} />
