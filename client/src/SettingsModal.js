@@ -1,17 +1,46 @@
-import { Modal } from 'antd';
+import { useState } from 'react';
+import { Modal, message } from 'antd';
 import NumOfColorSlider from './NumOfColorsSlider.js'
+import useGeneratePaletteAPI from './useGeneratePaletteAPI.js';
 
 export default function SettingsModal(props) {
-  const okText = props.fetchIsLoading ? "Generating" : "Generate";
+
+  const fetchPalette = useGeneratePaletteAPI();
+
+  const [fetchIsLoading, setFetchIsLoading] = useState(false);
+  const [numOfColors, setNumOfColors] = useState(5);
+
+  const handleGenerate = async () => {
+    try {
+        setFetchIsLoading(true);
+        const paletteData = await fetchPalette(props.selectedFile, numOfColors);
+        props.setPalette(paletteData.palette);
+        props.setCurrentPage(props.pages.palettePage);
+    } catch (error) {
+        console.error(error);
+        message.error("Something went wrong. Try another image.");
+        props.setSelectedFile(null);
+    } finally {
+        setFetchIsLoading(false);
+        props.setIsSettingsModalOpen(false);
+    }
+  };  
+
+  const handleSettingsModalCancel = () => {
+    props.setIsSettingsModalOpen(false);
+    props.setSelectedFile(null);
+  };
+
+const okText = fetchIsLoading ? "Generating" : "Generate";
   return (
-    <Modal centered className='settings-modal' title="Settings" open={props.open} onOk={props.onOk} onCancel={props.onCancel} okText={okText} confirmLoading={props.fetchIsLoading}>
+    <Modal centered className='settings-modal' title="Settings" open={props.open} onOk={handleGenerate} onCancel={handleSettingsModalCancel} okText={okText} confirmLoading={fetchIsLoading}>
         {props.selectedFile != null && 
           <div className='image-preview-container'>
             <img className='image-preview' src={URL.createObjectURL(props.selectedFile)} />
           </div>
         }
         <p>Select number of colors:</p>
-        <NumOfColorSlider numOfColors={props.numOfColors} setNumOfColors={props.setNumOfColors}/>
+        <NumOfColorSlider numOfColors={numOfColors} setNumOfColors={setNumOfColors}/>
     </Modal>
   );
 };
