@@ -35,7 +35,7 @@ export default function SettingsModal(props) {
 
 const okText = fetchIsLoading ? "Generating" : "Generate";
   return (
-    <Modal centered className='settings-modal' title="Settings" open={props.open} onOk={handleGenerate} onCancel={handleSettingsModalCancel} okText={okText} confirmLoading={fetchIsLoading}>
+    <Modal centered className='settings-modal' title="Settings" open={props.open} onOk={handleGenerate} onCancel={handleSettingsModalCancel} okText={okText} confirmLoading={fetchIsLoading} okButtonProps={{shape: 'round'}} cancelButtonProps={{shape: 'round'}}>
         {props.selectedFile != null && 
           <div className='image-preview-container'>
             <img className='image-preview' src={URL.createObjectURL(props.selectedFile)} />
