@@ -1,4 +1,4 @@
-import { Button, ConfigProvider } from 'antd';
+import { Button, ConfigProvider, message, Tooltip } from 'antd';
 
 export default function PalettePage(props) {
     const numberSign = '#'
@@ -13,6 +13,15 @@ export default function PalettePage(props) {
     const zeroPad = (num, places) => String(num).padStart(places, '0');
     const luminance = (color) => {return color.reduce((a, b) => a + b, 0)/3}
 
+    function copyTextToClipboard(text) {
+        if ('clipboard' in navigator) {
+            navigator.clipboard.writeText(text);
+            message.success("Color #" + text + " copied to clipboard")
+        } else {
+            document.execCommand('copy', true, text);
+        }
+    };
+
     return (
         <div className='palette-page'>
             <h1 className='logo'>PalettePickr</h1>
@@ -25,10 +34,13 @@ export default function PalettePage(props) {
                         <div 
                             className= {luminance(color) >= 100 ? 'palette-color palette-color-bright' : 'palette-color palette-color-dark'}
                             style={{backgroundColor: numberSign.concat(color.map(channel => zeroPad(channel.toString(16), 2)).join(''))}}
+                            onClick={() => copyTextToClipboard(color.map(channel => zeroPad(channel.toString(16), 2)).join('').toUpperCase())}
                         >
-                            <div className='palette-color-text'>
-                                {color.map(channel => zeroPad(channel.toString(16), 2)).join('').toUpperCase()}
-                            </div>
+                            <Tooltip title="Click to copy" placement="bottom" className='palette-color-text-tooltip'>
+                                <div className='palette-color-text'>
+                                    {color.map(channel => zeroPad(channel.toString(16), 2)).join('').toUpperCase()}
+                                </div>
+                            </Tooltip>
                         </div>
                     ))}
                 </div>

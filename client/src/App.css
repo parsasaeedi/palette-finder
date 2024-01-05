@@ -259,6 +259,12 @@ html {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  container-type: size;
+}
+
+.palette-page .image-palette-container .palette .palette-color .palette-color-text-tooltip {
+  width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -268,7 +274,7 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  container-type: size;
+  cursor: pointer;
 }
 
 .palette-page .image-palette-container .palette .palette-color .palette-color-text {
