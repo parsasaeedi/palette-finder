@@ -33,7 +33,7 @@ export default function LandingPage(props) {
     };
 
     const { Dragger } = Upload;
-    const draggreProps = {
+    const draggerProps = {
         name: 'file',
         multiple: false,
         accept: "image/png, image/jpeg",
@@ -50,7 +50,7 @@ export default function LandingPage(props) {
         <div className='landing-page'>
             <h1 className='logo'>PaletteFinder</h1>
             <h2 className='slogan'>Transform your images to color palettes and unleash your creativity!</h2>
-            <Dragger {...draggreProps} className='dragger'>
+            <Dragger {...draggerProps} className='dragger'>
                 <InsertPhotoOutlinedIcon className="inert-photo-icon"/>
                 <p className="ant-upload-text">Browse or drop image</p>
                 <p className="ant-upload-hint">
