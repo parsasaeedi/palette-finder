@@ -318,7 +318,10 @@ html {
 }
 
 .palette-page .palette-page-buttons {
-  width: 40vw;
+  width: 60vw;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -326,13 +329,7 @@ html {
       justify-content: space-around;
 }
 
-.palette-page .palette-page-buttons .replace-image-button {
-  background-color: #C3C3C3;
-  color: black;
-  min-width: 10vw;
-}
-
-.palette-page .palette-page-buttons .settings-button {
+.palette-page .palette-page-buttons .palette-page-button {
   background-color: #C3C3C3;
   color: black;
   min-width: 10vw;
@@ -354,15 +351,13 @@ html {
     -ms-flex-pack: distribute;
         justify-content: space-around;
   }
-  .palette-page .palette-page-buttons .replace-image-button {
+  .palette-page .palette-page-buttons .palette-page-button {
     background-color: #C3C3C3;
     color: black;
     width: 10em;
   }
-  .palette-page .palette-page-buttons .settings-button {
-    background-color: #C3C3C3;
-    color: black;
-    width: 10em;
+  .palette-page .palette-page-buttons .download-button {
+    display: none;
   }
 }
 /*# sourceMappingURL=App.css.map */

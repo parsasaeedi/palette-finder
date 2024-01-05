@@ -236,16 +236,12 @@ html {
         }
     }
     .palette-page-buttons {
-        width: 40vw;
+        width: 60vw;
+        min-width: fit-content;
         display: flex;
         justify-content: space-around;
 
-        .replace-image-button {
-            background-color: $brightText;
-            color: $black;
-            min-width: 10vw;
-        }
-        .settings-button {
+        .palette-page-button {
             background-color: $brightText;
             color: $black;
             min-width: 10vw;
@@ -259,15 +255,13 @@ html {
             flex-direction: column;
             justify-content: space-around;
 
-            .replace-image-button {
+            .palette-page-button {
                 background-color: $brightText;
                 color: $black;
                 width: 10em;
             }
-            .settings-button {
-                background-color: $brightText;
-                color: $black;
-                width: 10em;
+            .download-button {
+                display: none;
             }
         }
     }
