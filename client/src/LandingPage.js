@@ -16,7 +16,6 @@ export default function LandingPage(props) {
             setFetchIsLoading(true);
             const paletteData = await fetchPalette(props.selectedFile, numOfColors);
             props.setPalette(paletteData.palette);
-            props.setImageAspectRatio(paletteData.imageAspectRatio)
             props.setCurrentPage(props.pages.palettePage);
         } catch (error) {
             console.error(error);

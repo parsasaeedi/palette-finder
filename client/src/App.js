@@ -14,7 +14,6 @@ function App() {
   const [currentPage, setCurrentPage] = useState(pages.landingPage);
   const [palette, setPalette] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
-  const [imageAspectRatio, setImageAspectRatio] = useState(null);
 
   const replaceImage = () => {
     setCurrentPage(pages.landingPage);
@@ -31,8 +30,8 @@ function App() {
       >
         {
           currentPage==pages.landingPage ? 
-          <LandingPage setCurrentPage={setCurrentPage} pages={pages} setPalette={setPalette} selectedFile={selectedFile} setSelectedFile={setSelectedFile} setImageAspectRatio={setImageAspectRatio} />
-          : <PalettePage palette={palette} selectedFile={selectedFile} replaceImage={replaceImage} imageAspectRatio={imageAspectRatio} />
+          <LandingPage setCurrentPage={setCurrentPage} pages={pages} setPalette={setPalette} selectedFile={selectedFile} setSelectedFile={setSelectedFile} />
+          : <PalettePage palette={palette} selectedFile={selectedFile} replaceImage={replaceImage} />
         }
       </ConfigProvider>
     </div>
