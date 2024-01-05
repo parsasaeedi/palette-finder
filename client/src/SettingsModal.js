@@ -28,7 +28,9 @@ export default function SettingsModal(props) {
 
   const handleSettingsModalCancel = () => {
     props.setIsSettingsModalOpen(false);
-    props.setSelectedFile(null);
+    if (props.currentPage == props.pages.landingPage) {
+      props.setSelectedFile(null);
+    }
   };
 
 const okText = fetchIsLoading ? "Generating" : "Generate";

@@ -46,7 +46,10 @@ export default function PalettePage(props) {
                 </div>
             </div>
             <ConfigProvider theme={buttonTheme} >
-                <Button className='replace-image-button' type="primary" shape="round" size='large' onClick={props.replaceImage}>Replace Image</Button>
+                <div className='palette-page-buttons'>
+                    <Button className='settings-button' type="primary" shape="round" size='large' onClick={() => props.setIsSettingsModalOpen(true)}>Palette Settings</Button>
+                    <Button className='replace-image-button' type="primary" shape="round" size='large' onClick={props.replaceImage}>Replace Image</Button>
+                </div>
             </ConfigProvider>
         </div>
     )

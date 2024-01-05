@@ -235,9 +235,41 @@ html {
             max-height: 65vh;
         }
     }
+    .palette-page-buttons {
+        width: 40vw;
+        display: flex;
+        justify-content: space-around;
 
-    .replace-image-button {
-        background-color: $brightText;
-        color: $black;
+        .replace-image-button {
+            background-color: $brightText;
+            color: $black;
+            min-width: 10vw;
+        }
+        .settings-button {
+            background-color: $brightText;
+            color: $black;
+            min-width: 10vw;
+        }
     }
+    @media (max-width: $mobileWidth) {
+        .palette-page-buttons {
+            height: 15vh;
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            .replace-image-button {
+                background-color: $brightText;
+                color: $black;
+                width: 10em;
+            }
+            .settings-button {
+                background-color: $brightText;
+                color: $black;
+                width: 10em;
+            }
+        }
+    }
+
 }

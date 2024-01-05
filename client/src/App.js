@@ -35,7 +35,7 @@ function App() {
           <LandingPage setCurrentPage={setCurrentPage} pages={pages} setPalette={setPalette} selectedFile={selectedFile} setSelectedFile={setSelectedFile} setIsSettingsModalOpen={setIsSettingsModalOpen}/>
           : <PalettePage palette={palette} selectedFile={selectedFile} replaceImage={replaceImage} setIsSettingsModalOpen={setIsSettingsModalOpen}/>
         }
-        <SettingsModal open={isSettingsModalOpen} setIsSettingsModalOpen={setIsSettingsModalOpen} selectedFile={selectedFile} setPalette={setPalette} setCurrentPage={setCurrentPage} setSelectedFile={setSelectedFile} pages={pages}/>
+        <SettingsModal open={isSettingsModalOpen} setIsSettingsModalOpen={setIsSettingsModalOpen} selectedFile={selectedFile} setPalette={setPalette} currentPage={currentPage} setCurrentPage={setCurrentPage} setSelectedFile={setSelectedFile} pages={pages}/>
       </ConfigProvider>
     </div>
   );
