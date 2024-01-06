@@ -1,21 +1,18 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-weight: 400;
 }
 
 @font-face {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   src: url(./OpenSans-VariableFont_wdth\,wght.ttf);
 }
-
 @font-face {
-  font-family: 'Inter';
+  font-family: "Inter";
   src: url(./Inter-VariableFont_slnt,wght.ttf);
 }
-
 html {
   background-color: black;
 }
@@ -25,131 +22,85 @@ html {
   height: 95vh;
   color: #8E8E8E;
   margin: 0;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-weight: 400;
 }
 
 .landing-page {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   height: 80vh;
   margin-top: 5vh;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
-
 .landing-page .logo {
   color: #C3C3C3;
   font-size: 40px;
 }
-
 .landing-page .slogan {
   font-size: 32px;
   width: 50vw;
   text-align: center;
 }
-
 @media (max-width: 45em) {
   .landing-page .slogan {
     width: 80vw;
     font-size: 28px;
   }
 }
-
 .landing-page .dragger {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   width: 25vw;
   height: 27vh;
 }
-
 .landing-page .dragger .inert-photo-icon {
   color: #8E8E8E;
   width: 6vw;
   height: 6vw;
 }
-
 @media (max-width: 45em) {
   .landing-page .dragger .inert-photo-icon {
     width: 20vw;
     height: 20vw;
   }
 }
-
 .landing-page .dragger .ant-upload-text {
   color: #8E8E8E;
 }
-
 .landing-page .dragger .ant-upload-drag {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   border-radius: 3vw;
   background-color: black;
 }
-
 .landing-page .dragger .ant-upload-drag .ant-upload-btn {
   height: 100%;
   width: 100%;
   border-radius: 3vw;
   border-width: 10px;
 }
-
 .landing-page .dragger .ant-upload-drag .ant-upload-btn .ant-upload-drag-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
 @media (max-width: 45em) {
   .landing-page .dragger .ant-upload-drag .ant-upload-btn {
     border-radius: 10vw;
   }
 }
-
 @media (max-width: 45em) {
   .landing-page .dragger .ant-upload-drag {
     border-radius: 10vw;
   }
 }
-
 @media (max-width: 45em) {
   .landing-page .dragger {
     width: 80vw;
@@ -162,18 +113,11 @@ html {
 }
 
 .image-preview-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 10px;
 }
-
 .image-preview-container .image-preview {
   max-width: 100%;
   max-height: 60vh;
@@ -181,55 +125,34 @@ html {
 }
 
 .num-of-colors-slider {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 30px;
 }
 
 .slider {
-  -webkit-box-flex: 5;
-      -ms-flex-positive: 5;
-          flex-grow: 5;
+  flex-grow: 5;
 }
 
 .palette-page {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   height: 100vh;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-around;
+  align-items: center;
 }
-
 .palette-page .logo {
   color: #C3C3C3;
   font-size: 40px;
   cursor: pointer;
 }
-
 .palette-page .image-palette-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   max-width: 50vw;
   max-height: 65vh;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
-
 .palette-page .image-palette-container .palette-image {
   max-width: 100%;
   max-height: 85%;
@@ -238,118 +161,82 @@ html {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-
 .palette-page .image-palette-container .palette {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   container-type: size;
   max-width: 100%;
   min-height: 15%;
 }
-
 .palette-page .image-palette-container .palette :last-child {
   border-bottom-right-radius: 10px;
 }
-
 .palette-page .image-palette-container .palette :first-child {
   border-bottom-left-radius: 10px;
 }
-
 .palette-page .image-palette-container .palette .palette-color {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  flex-grow: 1;
   container-type: size;
 }
-
 .palette-page .image-palette-container .palette .palette-color .palette-color-text-tooltip {
   width: 100%;
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
-
 .palette-page .image-palette-container .palette .palette-color .palette-color-text {
-  font-family: 'Inter';
+  font-family: "Inter";
   font-weight: 600;
   font-size: calc(8px + 0.5vw);
 }
-
 @container (max-width: 90px) {
   .palette-page .image-palette-container .palette .palette-color .palette-color-text {
     font-size: calc(8px + 0.3vw);
   }
 }
-
 @container (max-width: 70px) {
   .palette-page .image-palette-container .palette .palette-color .palette-color-text {
     font-size: 0;
   }
 }
-
 @media (max-width: 45em) {
   .palette-page .image-palette-container .palette .palette-color .palette-color-text {
     font-size: 0;
   }
 }
-
 .palette-page .image-palette-container .palette .palette-color-dark {
   color: white;
 }
-
 .palette-page .image-palette-container .palette .palette-color-bright {
   color: black;
 }
-
 @media (max-width: 45em) {
   .palette-page .image-palette-container {
     max-width: 90vw;
     max-height: 65vh;
   }
 }
-
 .palette-page .palette-page-buttons {
   width: 60vw;
-  min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
-
 .palette-page .palette-page-buttons .palette-page-button {
   background-color: #C3C3C3;
   color: black;
   min-width: 10vw;
 }
-
 @media (max-width: 45em) {
   .palette-page .palette-page-buttons {
     height: 15vh;
-    width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-around;
   }
   .palette-page .palette-page-buttons .palette-page-button {
     background-color: #C3C3C3;
@@ -359,5 +246,4 @@ html {
   .palette-page .palette-page-buttons .download-button {
     display: none;
   }
-}
-/*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=App.css.map */
