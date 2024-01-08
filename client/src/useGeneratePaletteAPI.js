@@ -33,7 +33,7 @@ export default function useGeneratePaletteAPI() {
         return new Promise((resolve, reject) => {
             axios({
                 method: "post",
-                url: "/api",
+                url: "/generate",
                 data: bodyFormData,
                 headers: { 'Content-Type': 'multipart/form-data' },
             })
