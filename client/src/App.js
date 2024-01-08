@@ -31,7 +31,7 @@ function App() {
         }}
       >
         {
-          currentPage==pages.landingPage ? 
+          currentPage===pages.landingPage ? 
           <LandingPage setCurrentPage={setCurrentPage} pages={pages} setPalette={setPalette} selectedFile={selectedFile} setSelectedFile={setSelectedFile} setIsSettingsModalOpen={setIsSettingsModalOpen}/>
           : <PalettePage palette={palette} selectedFile={selectedFile} replaceImage={replaceImage} setIsSettingsModalOpen={setIsSettingsModalOpen}/>
         }

@@ -32,7 +32,7 @@ function copyTextToClipboard(text) {
 const Palette = React.forwardRef((props, ref) => (
     <div ref={ref} className='image-palette-container'>
         {props.selectedFile != null && 
-            <img className='palette-image' src={URL.createObjectURL(props.selectedFile)} />
+            <img className='palette-image' src={URL.createObjectURL(props.selectedFile)} alt='Inputted file' />
         }
         <div className='palette'>
             {props.palette.map((color) => (

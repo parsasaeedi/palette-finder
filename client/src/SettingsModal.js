@@ -28,7 +28,7 @@ export default function SettingsModal(props) {
 
   const handleSettingsModalCancel = () => {
     props.setIsSettingsModalOpen(false);
-    if (props.currentPage == props.pages.landingPage) {
+    if (props.currentPage === props.pages.landingPage) {
       props.setSelectedFile(null);
     }
   };
@@ -38,7 +38,7 @@ const okText = fetchIsLoading ? "Generating" : "Generate";
     <Modal centered className='settings-modal' title="Settings" open={props.open} onOk={handleGenerate} onCancel={handleSettingsModalCancel} okText={okText} confirmLoading={fetchIsLoading} okButtonProps={{shape: 'round'}} cancelButtonProps={{shape: 'round'}}>
         {props.selectedFile != null && 
           <div className='image-preview-container'>
-            <img className='image-preview' src={URL.createObjectURL(props.selectedFile)} />
+            <img className='image-preview' src={URL.createObjectURL(props.selectedFile)} alt='Inputted file preview' />
           </div>
         }
         <p>Select number of colors:</p>
