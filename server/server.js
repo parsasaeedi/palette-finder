@@ -1,10 +1,12 @@
 const generatePalette = require("./generatePalette.js");
 const express = require('express')
 const multer = require('multer');
+const cors = require('cors')
 
 const app = express()
-const port = process.env.PORT || 3001;
+app.use(cors());
 
+const port = process.env.PORT || 3001;
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
