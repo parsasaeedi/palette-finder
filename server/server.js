@@ -8,7 +8,7 @@ const port = process.env.PORT || 3001;
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-app.post("/api", upload.single('file'), async (req, res) => {
+app.post("/generate", upload.single('file'), async (req, res) => {
     try {
         const file = req.file;
         const numClusters = req.body.numClusters
